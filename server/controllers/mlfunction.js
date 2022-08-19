@@ -49,7 +49,7 @@ export const imageUpload = async function (req, res) {
             "treatment",
             "url"],
     };
-    // const response = await axios.post('https://api.plant.id/v2/health_assessment', data);
+    const response = await axios.post('https://api.plant.id/v2/health_assessment', data);
     let record = [];
     let temp_record = response.data.health_assessment.diseases;
     let url = response.data.images[0].url;

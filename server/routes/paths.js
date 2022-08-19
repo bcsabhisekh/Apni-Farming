@@ -1,15 +1,17 @@
 import express from "express";
 
-import { addCropDetail, getCropDetailByName, getCropDetailByYear, getCropDetailCustom, getDisease } from "../controllers/functions.js";
+import { addCropDetail, getCropDetailByName, getCropDetailByYear, getCropDetailCustom, getDisease, loginUser, registerUser } from "../controllers/functions.js";
 import { imageUpload, uploadImage } from "../controllers/mlfunction.js";
 
 const router = express.Router();
 
 router.post("/upload", uploadImage, imageUpload);
-router.post("/addcrop", addCropDetail);
-router.get("/getcustom/:year", getCropDetailCustom);
-router.get("/getyear", getCropDetailByYear);
-router.get("/getname", getCropDetailByName);
+router.post("/addcrop/:email", addCropDetail);
+router.get("/getcustom/:email/:year", getCropDetailCustom);
+router.get("/getyear/:email", getCropDetailByYear);
+router.get("/getname/:email", getCropDetailByName);
 router.get("/getdisease/:symptom", getDisease);
+router.post("/register", registerUser);
+router.post("/login", loginUser);
 
 export default router;

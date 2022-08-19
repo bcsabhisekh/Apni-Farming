@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cattle_Result from "./Cattle_Result";
 
-export default function Cattle() {
+export default function Cattle({ loginStatus, setLoginStatus }) {
     const [symptom, setSymptom] = useState();
     const [data, setData] = useState({});
 
@@ -13,7 +13,7 @@ export default function Cattle() {
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
-        if (symptom) {
+        if (symptom && symptom != "Select") {
             try {
                 const response = await axios.get(`http://localhost:5000/getdisease/${symptom}`);
                 setData(response.data);
@@ -23,7 +23,7 @@ export default function Cattle() {
             }
         }
         else {
-            alert("Complete all the Input Fields");
+            alert("Please Select an Option");
         }
     }
 
@@ -33,7 +33,7 @@ export default function Cattle() {
 
     return (
         <>
-            <Header />
+            <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
             {Object.keys(data).length === 0 && data.constructor === Object ? <section class="text-gray-600 body-font">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="flex flex-col text-center w-full mb-12">
@@ -45,8 +45,9 @@ export default function Cattle() {
                             <form onSubmit={onFormSubmit}>
                                 <label for="full-name" class="leading-9 text-sm text-gray-600">Choose Symptoms</label>
                                 <select value={symptom} onChange={handleChange} class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                                    <option value="Ford">Profuse Salivation</option>
-                                    <option value="Volvo">Trembling</option>
+                                    <option value="Select">Select</option>
+                                    <option value="Fever, Anemia, Weight Loss">Fever, Anemia, Weight Loss</option>
+                                    <option value="Reduced Milk Yield">Reduced Milk Yield</option>
                                     <option value="Fiat">Difficulty Breathing</option>
                                     <option value="Ford">Fever (106-108°F)</option>
                                     <option value="Volvo">Recumbency (prostration)</option>

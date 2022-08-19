@@ -1,8 +1,17 @@
 import React from "react";
-export default function Body() {
+import { Link } from "react-router-dom";
+export default function Body({ loginStatus, setLoginStatus }) {
+
+    function Option() {
+        return (<div class="flex justify-center">
+            <Link to="/register" ><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign Up</button></Link>
+            <Link to="/login" ><button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Log In</button></Link>
+        </div >);
+    }
+
     return (
         <>
-            <section class="text-gray-600 body-font">
+            <section class="text-gray-600 body-font font-sans">
                 <div class="container mx-auto flex px-5 py-16 md:flex-row flex-col items-center">
                     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
                         <img class="object-cover object-center rounded" alt="hero" src="https://media.istockphoto.com/photos/smart-agriculture-tablet-in-the-field-with-weather-machinery-crops-picture-id1149604918?k=20&m=1149604918&s=612x612&w=0&h=D8jqF441SCqZHmCYGe3OriuymTRKm7b5EbBXzz8DqPw=" />
@@ -12,17 +21,14 @@ export default function Body() {
                             <br class="hidden lg:inline-block" />readymade gluten
                         </h1>
                         <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-                        <div class="flex justify-center">
-                            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                            <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-                        </div>
+                        {Object.keys(loginStatus).length == 0 ? <Option /> : null}
                     </div>
                 </div>
             </section>
             <section class="text-gray-600 body-font">
                 <div class="container px-5 py-24 mx-auto flex flex-wrap">
                     <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                        <img alt="feature" class="object-cover object-center h-full w-full" src="https://dummyimage.com/460x500" />
+                        <img alt="feature" class="object-cover object-center h-full w-full" src="https://www.mdpi.com/agriculture/agriculture-11-00461/article_deploy/html/images/agriculture-11-00461-g001.png" />
                     </div>
                     <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                         <div class="flex flex-col mb-10 lg:items-start items-center">

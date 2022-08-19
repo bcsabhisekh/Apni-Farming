@@ -6,7 +6,7 @@ import Footer from '../components/Footer.jsx';
 import Result from "../pages/Result.jsx";
 import { ReactComponent as Loader } from '../assets/LoaderIcon.svg';
 
-export default function Drag() {
+export default function Drag({ loginStatus, setLoginStatus }) {
     const [file, setFile] = useState(null);
     const [flag, setFlag] = useState(false);
     const [data, setData] = useState({});
@@ -37,7 +37,7 @@ export default function Drag() {
     }
     return (
         <>
-            <Header />
+            <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
             {isLoading ? <Loader style={{ width: "100px", height: "100px", margin: "auto", minHeight: "400px" }} /> :
                 (flag === true ? <Result data={data} setFlag={setFlag} /> : < section class="text-gray-600 body-font relative" >
                     <div class="container px-5 py-24 mx-auto">

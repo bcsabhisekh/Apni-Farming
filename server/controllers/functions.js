@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 mongoose.connect("mongodb+srv://admin-khushboo:khushboo9198@cluster0.mrg3ztd.mongodb.net/cropDB", { useNewUrlParser: true });
 const cropSchema = new mongoose.Schema({
     id: String,
+    email: String,
     year: String,
     crop_name: String,
     seed_type: String,
@@ -33,6 +34,7 @@ export const fetchRecord = async function (req, res) {
 export const addCropDetail = function (req, res) {
     const cropData = new Crop({
         id: uuid(),
+        email: req.params.email,
         year: req.body.year,
         crop_name: req.body.crop_name,
         seed_type: req.body.seed_type,
@@ -68,7 +70,7 @@ export const getCropDetailByYear = async function (req, res) {
             for (let i = year - 10; i <= year; i++) {
                 let profit = 0;
                 result && result.map((item) => {
-                    if (item.year == i) {
+                    if (item.year == i && item.email == req.params.email) {
                         switch (item.crop_name) {
                             case "Wheat":
                                 profit += (item.production * priceList.wheat - item.input_cost);
@@ -115,24 +117,26 @@ export const getCropDetailByName = async function (req, res) {
                 Oil: 0
             };
             result && result.map((item) => {
-                switch (item.crop_name) {
-                    case "Wheat":
-                        obj["Wheat"] += (item.production * priceList.wheat - item.input_cost);
-                        break;
-                    case "Rice":
-                        obj["Rice"] += (item.production * priceList.rice - item.input_cost);
-                        break;
-                    case "Sugar":
-                        obj["Sugar"] += (item.production * priceList.sugar - item.input_cost);
-                        break;
-                    case "Soyabean":
-                        obj["Soyabean"] += (item.production * priceList.soyabean - item.input_cost);
-                        break;
-                    case "Oil":
-                        obj["Oil"] += (item.production * priceList.oil - item.input_cost);
-                        break;
-                    default:
-                        break;
+                if (item.email == req.params.email) {
+                    switch (item.crop_name) {
+                        case "Wheat":
+                            obj["Wheat"] += (item.production * priceList.wheat - item.input_cost);
+                            break;
+                        case "Rice":
+                            obj["Rice"] += (item.production * priceList.rice - item.input_cost);
+                            break;
+                        case "Sugar":
+                            obj["Sugar"] += (item.production * priceList.sugar - item.input_cost);
+                            break;
+                        case "Soyabean":
+                            obj["Soyabean"] += (item.production * priceList.soyabean - item.input_cost);
+                            break;
+                        case "Oil":
+                            obj["Oil"] += (item.production * priceList.oil - item.input_cost);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             })
             const record = [];
@@ -155,7 +159,7 @@ export const getCropDetailCustom = async function (req, res) {
     Crop.find({}, function (err, result) {
         if (!err) {
             result && result.map((item) => {
-                if (year === item.year) {
+                if (year === item.year && item.email == req.params.email) {
                     let profit = 0, weather = "", seed = "", fertilizer = "";
                     switch (item.crop_name) {
                         case "Wheat":
@@ -236,3 +240,55 @@ export const getDisease = function (req, res) {
     });
 }
 
+
+const userSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    email: String,
+    dob: Date,
+    gender: String,
+    password: String,
+    repassword: String
+});
+
+const User = mongoose.model("User", userSchema);
+
+export const registerUser = function (req, res) {
+
+    const { name, email, dob, gender, password, repassword } = req.body;
+    User.findOne({ email: email }, (err, result) => {
+        if (result) {
+            res.send({ message: "User with this email is already registerd" });
+        } else {
+            const user = new User({
+                id: uuid(),
+                name,
+                email,
+                dob,
+                gender,
+                password,
+                repassword
+            });
+            user.save(err => {
+                if (err) {
+                    res.send({ message: "Server Side Error" });
+                } else {
+                    res.send({ message: "Successfully Registered, Please login now." })
+                }
+            })
+        }
+    })
+}
+
+
+export const loginUser = function (req, res) {
+    const { email, password } = req.body;
+    User.findOne({ email: email, password: password }, (err, result) => {
+        if (result) {
+            res.send({ message: "Login Successful", user: result });
+        }
+        else {
+            res.send({ message: "User not registered", user: {} });
+        }
+    })
+}
