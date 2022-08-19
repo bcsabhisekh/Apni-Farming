@@ -58,24 +58,24 @@ export default function Table({ loginStatus, setLoginStatus }) {
     return (
         <>
             <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
-            <section class="text-gray-600 body-font relative">
-                <div class="container px-5 py-16 mx-auto">
-                    <div class="flex flex-col text-center w-full mb-12">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Enter Crop Details</h1>
-                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+            <section className="text-gray-600 body-font relative">
+                <div className="container px-5 py-16 mx-auto">
+                    <div className="flex flex-col text-center w-full mb-12">
+                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Enter Crop Details</h1>
+                        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
                     </div>
-                    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div className="lg:w-1/2 md:w-2/3 mx-auto">
                         <form onSubmit={onFormSubmit}>
-                            <div class="flex flex-wrap -m-2">
-                                <div class="p-2 w-1/2">
-                                    <div class="relative">
-                                        <label for="name" class="leading-7 text-sm text-gray-600">Year</label>
-                                        <input type="number" autocomplete="off" min="1900" max={curr_year} id="name" onChange={handleChange} value={cropDetail.year} name="year" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <div className="flex flex-wrap -m-2">
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label for="name" className="leading-7 text-sm text-gray-600">Year</label>
+                                        <input type="number" autocomplete="off" min="1900" max={curr_year} id="name" onChange={handleChange} value={cropDetail.year} name="year" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
                                 </div>
-                                <div class="p-2 w-1/2">
-                                    <label for="full-name" class="leading-7 text-sm text-gray-600">Choose Crop</label>
-                                    <select value={cropDetail.crop_name} onChange={handleChange} name="crop_name" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                <div className="p-2 w-1/2">
+                                    <label for="full-name" className="leading-7 text-sm text-gray-600">Choose Crop</label>
+                                    <select value={cropDetail.crop_name} onChange={handleChange} name="crop_name" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                                         <option value="Select">Select</option>
                                         <option value="Wheat">Wheat</option>
                                         <option value="Rice">Rice</option>
@@ -84,38 +84,38 @@ export default function Table({ loginStatus, setLoginStatus }) {
                                         <option value="Oil">Oil</option>
                                     </select>
                                 </div>
-                                <div class="p-2 w-1/2">
-                                    <div class="relative">
-                                        <label for="name" class="leading-7 text-sm text-gray-600">Total Production (in tones)</label>
-                                        <input type="number" autocomplete="off" id="name" name="production" onChange={handleChange} value={cropDetail.production} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label for="name" className="leading-7 text-sm text-gray-600">Total Production (in tones)</label>
+                                        <input type="number" autocomplete="off" id="name" name="production" onChange={handleChange} value={cropDetail.production} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
                                 </div>
-                                <div class="p-2 w-1/2">
-                                    <div class="relative">
-                                        <label for="name" class="leading-7 text-sm text-gray-600">Total Input Cost (INR)</label>
-                                        <input type="number" autocomplete="off" id="name" name="input_cost" onChange={handleChange} value={cropDetail.input_cost} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label for="name" className="leading-7 text-sm text-gray-600">Total Input Cost (INR)</label>
+                                        <input type="number" autocomplete="off" id="name" name="input_cost" onChange={handleChange} value={cropDetail.input_cost} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
                                 </div>
-                                <div class="p-2 w-full">
-                                    <div class="relative">
-                                        <label for="name" class="leading-7 text-sm text-gray-600">Seed Type</label>
-                                        <input type="text" autocomplete="off" id="name" name="seed_type" onChange={handleChange} value={cropDetail.seed_type} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <div className="p-2 w-full">
+                                    <div className="relative">
+                                        <label for="name" className="leading-7 text-sm text-gray-600">Seed Type</label>
+                                        <input type="text" autocomplete="off" id="name" name="seed_type" onChange={handleChange} value={cropDetail.seed_type} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
                                 </div>
-                                <div class="p-2 w-full">
-                                    <div class="relative">
-                                        <label for="message" class="leading-7 text-sm text-gray-600">Weather Description</label>
-                                        <textarea id="message" autocomplete="off" name="weather" onChange={handleChange} value={cropDetail.weather} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-16 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                                <div className="p-2 w-full">
+                                    <div className="relative">
+                                        <label for="message" className="leading-7 text-sm text-gray-600">Weather Description</label>
+                                        <textarea id="message" autocomplete="off" name="weather" onChange={handleChange} value={cropDetail.weather} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-16 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                                     </div>
                                 </div>
-                                <div class="p-2 w-full">
-                                    <div class="relative">
-                                        <label for="message" class="leading-7 text-sm text-gray-600">Used Fertilizers</label>
-                                        <textarea id="message" autocomplete="off" name="fertilizer" onChange={handleChange} value={cropDetail.fertilizer} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-16 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                                <div className="p-2 w-full">
+                                    <div className="relative">
+                                        <label for="message" className="leading-7 text-sm text-gray-600">Used Fertilizers</label>
+                                        <textarea id="message" autocomplete="off" name="fertilizer" onChange={handleChange} value={cropDetail.fertilizer} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-16 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                                     </div>
                                 </div>
-                                <div class="p-8 w-full">
-                                    <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-1 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Post</button>
+                                <div className="p-8 w-full">
+                                    <button type="submit" className="flex mx-auto text-white bg-indigo-500 border-0 py-1 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Post</button>
                                 </div>
                             </div>
                         </form>

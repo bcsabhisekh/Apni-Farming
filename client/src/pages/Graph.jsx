@@ -76,9 +76,9 @@ export default function Graph({ loginStatus, setLoginStatus }) {
     return (
         <>
             <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
-            {custom_data.length > 0 && flag === true ? <Graph_Result custom_data={custom_data} setCustomData={setCustomData} setFlag={setFlag} year={year_data} /> : <section class="text-gray-600 body-font">
-                <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-                    <h1 class="title-font sm:text-2xl mb-8 font-medium text-gray-900">Previous 10 Year's Profit Record (INR)</h1>
+            {custom_data.length > 0 && flag === true ? <Graph_Result custom_data={custom_data} setCustomData={setCustomData} setFlag={setFlag} year={year_data} /> : <section className="text-gray-600 body-font">
+                <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+                    <h1 className="title-font sm:text-2xl mb-8 font-medium text-gray-900">Previous 10 Year's Profit Record (INR)</h1>
                     <BarChart
                         width={800}
                         height={500}
@@ -98,8 +98,8 @@ export default function Graph({ loginStatus, setLoginStatus }) {
                         <Bar dataKey="profit" fill="#00e673" />
                         {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                     </BarChart>
-                    <div class="py-5"></div>
-                    <h1 class="title-font sm:text-2xl mb-8 font-medium text-gray-900">Previous 10 Year's Profit Record sorted by name (INR)</h1>
+                    <div className="py-5"></div>
+                    <h1 className="title-font sm:text-2xl mb-8 font-medium text-gray-900">Previous 10 Year's Profit Record sorted by name (INR)</h1>
                     <BarChart
                         width={800}
                         height={500}
@@ -119,22 +119,22 @@ export default function Graph({ loginStatus, setLoginStatus }) {
                         <Bar dataKey="profit" fill="#00e673" />
                         {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                     </BarChart>
-                    <div class="container px-5 py-20 mx-auto">
-                        <div class="flex flex-col text-center w-full mb-12">
-                            <h1 class="sm:text-2xl font-medium title-font mb-0 text-gray-900">Fetch a Particular Record by Year</h1>
+                    <div className="container px-5 py-20 mx-auto">
+                        <div className="flex flex-col text-center w-full mb-12">
+                            <h1 className="sm:text-2xl font-medium title-font mb-0 text-gray-900">Fetch a Particular Record by Year</h1>
                         </div>
-                        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
-                            <div class="relative flex-grow w-full">
+                        <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                            <div className="relative flex-grow w-full">
                                 <form onSubmit={onFormSubmit}>
-                                    <div class="flex flex-wrap -m-2">
-                                        <div class="p-2 w-full">
-                                            <div class="relative">
-                                                <label for="name" class="leading-7 text-sm text-gray-600">Year</label>
-                                                <input type="number" autocomplete="off" id="name" onChange={handleChange} value={year_data} name="year" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <div className="flex flex-wrap -m-2">
+                                        <div className="p-2 w-full">
+                                            <div className="relative">
+                                                <label for="name" className="leading-7 text-sm text-gray-600">Year</label>
+                                                <input type="number" autocomplete="off" id="name" onChange={handleChange} value={year_data} name="year" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                             </div>
                                         </div>
-                                        <div class="p-8 w-full">
-                                            <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-1 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get</button>
+                                        <div className="p-8 w-full">
+                                            <button type="submit" className="flex mx-auto text-white bg-indigo-500 border-0 py-1 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get</button>
                                         </div>
                                     </div>
                                 </form>
