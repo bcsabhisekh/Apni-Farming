@@ -1,18 +1,20 @@
 import React from "react";
+import img from "../components/images/main_logo.png";
 export default function Footer() {
     const date = new Date();
     const year = date.getFullYear();
     return (
-        <footer className="text-gray-600 body-font">
-            <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <footer className="text-gray-900 body-font border-t-2">
+            <div className="container px-5 pb-6 pt-4 mx-auto flex items-center sm:flex-row flex-col">
                 <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                    <img src={img} alt="" width="40px" height="40px" />
+                    {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg>
-                    <span className="ml-3 text-xl">Digital Farming</span>
+                    </svg> */}
+                    <span className="ml-3 text-xl">Apni Farming</span>
                 </a>
-                <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© {year} Digital Farming —
-                    <a href="https://github.com/bcsabhisekh" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@bcs_abhisekh</a>
+                <p className="text-sm text-gray-900 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© {year} Apni Farming —
+                    <a href="https://github.com/bcsabhisekh" className="text-gray-900 ml-1" rel="noopener noreferrer" target="_blank">@bcs_abhisekh</a>
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                     <a className="text-gray-500">

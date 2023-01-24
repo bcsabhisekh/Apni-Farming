@@ -76,7 +76,7 @@ export default function Graph({ loginStatus, setLoginStatus }) {
     return (
         <>
             <Header loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
-            {custom_data.length > 0 && flag === true ? <Graph_Result custom_data={custom_data} setCustomData={setCustomData} setFlag={setFlag} year={year_data} /> : <section className="text-gray-600 body-font">
+            {custom_data.length > 0 && flag === true ? <Graph_Result custom_data={custom_data} setCustomData={setCustomData} setFlag={setFlag} year={year_data} /> : <section className="text-gray-900 body-font">
                 <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
                     <h1 className="title-font sm:text-2xl mb-8 font-medium text-gray-900">Previous 10 Year's Profit Record (INR)</h1>
                     <BarChart
@@ -129,12 +129,12 @@ export default function Graph({ loginStatus, setLoginStatus }) {
                                     <div className="flex flex-wrap -m-2">
                                         <div className="p-2 w-full">
                                             <div className="relative">
-                                                <label for="name" className="leading-7 text-sm text-gray-600">Year</label>
-                                                <input type="number" autocomplete="off" id="name" onChange={handleChange} value={year_data} name="year" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                                <label for="name" className="leading-7 text-sm text-gray-900">Year</label>
+                                                <input type="number" autocomplete="off" id="name" onChange={handleChange} value={year_data} name="year" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                             </div>
                                         </div>
                                         <div className="p-8 w-full">
-                                            <button type="submit" className="flex mx-auto text-white bg-indigo-500 border-0 py-1 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get</button>
+                                            <button type="submit" className="flex mx-auto text-white bg-green-600 border-0 py-1 px-8 focus:outline-none hover:bg-green-800 rounded text-lg">Get</button>
                                         </div>
                                     </div>
                                 </form>
