@@ -3,7 +3,7 @@
 
 
 # APNI-FARMING
-## A Modern Approach for Crop Health Monitoring and Maintainance
+## A Modern Approach for Crop Health Monitoring and Maintainence
 
 A multipurpose and multiuser supported platform which helps farmers to maximize their crop yield by preventing them from various diseases. A farmer will be able to know from which disease their crops are infected. Farmer can also get information about their cattle's possible diseases if they show unusual behaviour. The last is a personalised data record of crops for decision-making in future harvesting and knowledge of profit obtained on their yield per year.
 
